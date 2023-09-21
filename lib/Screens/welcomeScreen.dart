@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_8/Screens/homeScreen.dart';
 
 class welcomeScreen extends StatelessWidget {
   @override
@@ -69,11 +70,11 @@ class welcomeScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 60),
                    Material(
-                    color:  Color.fromARGB(255, 145, 73, 141),
+                    color:   Color.fromARGB(255, 126, 54, 142),
                     borderRadius: BorderRadius.circular(10),
                      child: InkWell(
                       onTap: (){
-                        Navigator.of(context);
+                        Navigator.push(context,MaterialPageRoute(builder: (context) => homScreen(),));
                       },
                        child: Container(
                         padding: EdgeInsets.symmetric(horizontal: 80,vertical: 15),
