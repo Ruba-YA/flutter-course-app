@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_8/Screens/detailsScreen.dart';
+import 'package:flutter_application_8/const.dart';
 
 class homScreen extends StatelessWidget {
+  List cNames = ['Flutter', 'C#', 'Python', 'React Native'];
+  List imageList = ['Flutter', 'C#', 'Python', 'React Native'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,27 +54,28 @@ class homScreen extends StatelessWidget {
                         wordSpacing: 2,
                         color: Colors.white),
                   ),
-                 
                 ),
-                 Container(
-                  margin: EdgeInsets.only(top:3,bottom: 20),
+                Container(
+                  margin: EdgeInsets.only(top: 3, bottom: 20),
                   width: MediaQuery.of(context).size.width,
-                 padding: EdgeInsets.all(10),
+                  padding: EdgeInsets.all(10),
                   height: 55,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                     color: Colors.white,
+                    color: Colors.white,
                   ),
                   child: TextFormField(
-                  decoration: InputDecoration(hintText: "Search here ...",
-                  border: InputBorder.none,
-                  hintStyle: TextStyle(color: Colors.black26.withOpacity(0.5)),
-                  prefixIcon: Icon(Icons.search,
-                  color: Colors.black45,
-                  )
+                    decoration: InputDecoration(
+                        hintText: "Search here ...",
+                        border: InputBorder.none,
+                        hintStyle:
+                            TextStyle(color: Colors.black26.withOpacity(0.5)),
+                        prefixIcon: Icon(
+                          Icons.search,
+                          color: Colors.black45,
+                        )),
                   ),
-                  ),
-                 )
+                )
               ],
             ),
           ),
@@ -78,52 +83,80 @@ class homScreen extends StatelessWidget {
             height: 40,
           ),
           Container(
-            margin: EdgeInsets.only(right: 250),
-            child: Text(
-              "All Courses",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-                letterSpacing: 2,
-                wordSpacing: 2,
+              child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                " Courses",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25,
+                    letterSpacing: 2,
+                    wordSpacing: 2),
               ),
-            ),
-          ),
+              Text(
+                "See All",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                  letterSpacing: 2,
+                  color: primaryColor,
+                ),
+              ),
+            ],
+          )),
 
           // GridView
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: GridView.builder(
+                shrinkWrap: true,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 16.0,
                   mainAxisSpacing: 16.0,
                 ),
-                itemCount: 4,
+                itemCount: imageList.length,
                 itemBuilder: (context, index) {
-                  return Card(
-                    elevation: 4.0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16.0),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            "images/Python.png",
-                            height: 70,
-                            width: 70,
-                          ),
-                          SizedBox(height: 8.0),
-                          Text(
-                            'Item $index',
-                            style: TextStyle(fontSize: 16.0),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return detailsScreen();
+                        },
+                      ));
+                    },
+                    child: Card(
+                      elevation: 4.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              "images/${imageList[index]}.png",
+                              height: 70,
+                              width: 70,
+                            ),
+                            SizedBox(height: 17.0),
+                            Text(
+                              '${imageList[index]}',
+                              style: TextStyle(
+                                  fontSize: 22.0,
+                                  color: Colors.black.withOpacity(0.5),
+                                  fontWeight: FontWeight.w600),
+                              textAlign: TextAlign.center,
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                          
+                          ],
+                        ),
                       ),
                     ),
                   );
@@ -131,6 +164,48 @@ class homScreen extends StatelessWidget {
               ),
             ),
           ),
+        BottomNavigationBar(
+  backgroundColor: Colors.black,
+  selectedItemColor: Colors.white,
+  unselectedItemColor: Colors.grey,
+  type: BottomNavigationBarType.fixed,
+  selectedFontSize: 12.0,
+  unselectedFontSize: 12.0,
+  items: [
+    BottomNavigationBarItem(
+      icon: Stack(
+        children: [
+          Icon(Icons.home),
+          Positioned(
+            bottom: 0,
+            right: 0,
+            child: Container(
+              width: 8,
+              height: 8,
+              decoration: BoxDecoration(
+                color: Colors.red,
+                shape: BoxShape.circle,
+              ),
+            ),
+          ),
+        ],
+      ),
+      label: 'Home',
+    ),
+    BottomNavigationBarItem(
+      icon: Icon(Icons.explore),
+      label: 'Explore',
+    ),
+    BottomNavigationBarItem(
+      icon: Icon(Icons.notifications),
+      label: 'Notifications',
+    ),
+    BottomNavigationBarItem(
+      icon: Icon(Icons.person),
+      label: 'Profile',
+    ),
+  ],
+)
         ],
       ),
     );
