@@ -1,0 +1,108 @@
+import 'package:flutter/material.dart';
+
+class MyWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(120.0),
+        child: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0.0,
+          flexibleSpace: Stack(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      Color.fromARGB(255, 126, 54, 142),
+                      Color.fromARGB(255, 207, 223, 159),
+                    ],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 40.0,
+                left: 16.0,
+                right: 16.0,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    IconButton(
+                      icon: Icon(
+                        Icons.menu,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                        // Add your menu button functionality here
+                      },
+                    ),
+                    Text(
+                      'My Creative App',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 24.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    IconButton(
+                      icon: Icon(
+                        Icons.search,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                        // Add your search button functionality here
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+      body: Column(
+        children: [
+          // Hero Section and GridView go here...
+        ],
+      ),
+    );
+  }
+}
+
+
+
+//container
+
+
+Container(
+  padding: EdgeInsets.only(top: 15, left: 15, right: 15, bottom: 10),
+  decoration: BoxDecoration(
+      color: Color.fromARGB(255, 207, 223, 159),
+      borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(20),
+          bottomRight: Radius.circular(20))),
+  child: Column(
+    children: [
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Icon(
+            Icons.dashboard,
+            size: 30,
+            color: Colors.white,
+          ),
+          Text("All Courses",style: 
+        TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Colors.white),
+        ),
+          Icon(Icons.notifications,
+          size: 30,
+          color: Colors.white,)
+        ],
+      ),
+      SizedBox(height: 20,),
+    ],
+  ),
+),
