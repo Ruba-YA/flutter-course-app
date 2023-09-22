@@ -55,10 +55,20 @@ class homScreen extends StatelessWidget {
                  Container(
                   margin: EdgeInsets.only(top:3,bottom: 20),
                   width: MediaQuery.of(context).size.width,
+                 padding: EdgeInsets.all(10),
                   height: 55,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    
+                     color: Colors.white,
+                  ),
+                  child: TextFormField(
+                  decoration: InputDecoration(hintText: "Search here ...",
+                  border: InputBorder.none,
+                  hintStyle: TextStyle(color: Colors.black26.withOpacity(0.5)),
+                  prefixIcon: Icon(Icons.search,
+                  color: Colors.black45,
+                  )
+                  ),
                   ),
                  )
               ],
