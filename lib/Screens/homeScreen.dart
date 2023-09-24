@@ -140,7 +140,8 @@ class _homScreenState extends State<homScreen> {
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(
                         builder: (context) {
-                          return detailsScreen();
+                          return DetailsScreen(  courseName: imageList[index],
+          imagePath: imageList[index],);
                         },
                       ));
                     },
