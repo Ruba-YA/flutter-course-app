@@ -2,9 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_8/Screens/detailsScreen.dart';
 import 'package:flutter_application_8/const.dart';
 
-class homScreen extends StatelessWidget {
-  List cNames = ['Flutter', 'C#', 'Python', 'React Native'];
-  List imageList = ['Flutter', 'C#', 'Python', 'React Native'];
+class homScreen extends StatefulWidget {
+  @override
+  State<homScreen> createState() => _homScreenState();
+}
+
+class _homScreenState extends State<homScreen> {
+  int index=0;
+
+  List cNames = ['Flutter', 'C#', 'Python', 'React Native','Flutter', 'C#', 'Python', 'React Native'];
+
+  List imageList = ['Flutter', 'C#', 'Python', 'React Native','Flutter', 'C#', 'Python', 'React Native'];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,13 +37,16 @@ class homScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Icon(
-                      Icons.dashboard,
-                      size: 30,
+                    IconButton(
+                     icon:Icon( Icons.dashboard,size: 30,),
+                     onPressed: () {
+                       Navigator.pop(context);
+                     },
+                      
                       color: Colors.white,
                     ),
                     Icon(
-                      Icons.notifications,
+                      Icons.person,
                       size: 30,
                       color: Colors.white,
                     )
@@ -46,7 +58,7 @@ class homScreen extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(left: 3, bottom: 15),
                   child: Text(
-                    "Hi , Ahmed",
+                    "Hi , Ruba",
                     style: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.w600,
@@ -79,9 +91,12 @@ class homScreen extends StatelessWidget {
               ],
             ),
           ),
+
+          // End Hero Section 
           SizedBox(
             height: 40,
           ),
+
           Container(
               child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -105,6 +120,8 @@ class homScreen extends StatelessWidget {
               ),
             ],
           )),
+
+          
 
           // GridView
           Expanded(
@@ -154,7 +171,6 @@ class homScreen extends StatelessWidget {
                             SizedBox(
                               height: 10,
                             ),
-                          
                           ],
                         ),
                       ),
@@ -164,50 +180,27 @@ class homScreen extends StatelessWidget {
               ),
             ),
           ),
-        BottomNavigationBar(
-  backgroundColor: Colors.black,
-  selectedItemColor: Colors.white,
-  unselectedItemColor: Colors.grey,
-  type: BottomNavigationBarType.fixed,
-  selectedFontSize: 12.0,
-  unselectedFontSize: 12.0,
-  items: [
-    BottomNavigationBarItem(
-      icon: Stack(
-        children: [
-          Icon(Icons.home),
-          Positioned(
-            bottom: 0,
-            right: 0,
-            child: Container(
-              width: 8,
-              height: 8,
-              decoration: BoxDecoration(
-                color: Colors.red,
-                shape: BoxShape.circle,
-              ),
-            ),
-          ),
         ],
       ),
-      label: 'Home',
-    ),
-    BottomNavigationBarItem(
-      icon: Icon(Icons.explore),
-      label: 'Explore',
-    ),
-    BottomNavigationBarItem(
-      icon: Icon(Icons.notifications),
-      label: 'Notifications',
-    ),
-    BottomNavigationBarItem(
-      icon: Icon(Icons.person),
-      label: 'Profile',
-    ),
-  ],
-)
-        ],
-      ),
+      bottomNavigationBar: NavigationBar(height: 60, 
+      selectedIndex: index,
+      onDestinationSelected: (index) => setState(() {
+        this.index=index;
+      }),
+      destinations: [
+        NavigationDestination(
+            icon: Icon(Icons.home_outlined),
+            selectedIcon: Icon(Icons.home),
+            label: "Home"),
+               NavigationDestination(
+            icon: Icon(Icons.dashboard_outlined),
+            selectedIcon: Icon(Icons.dashboard),
+            label: "Courses"),
+               NavigationDestination(
+            icon: Icon(Icons.person_2_outlined),
+            selectedIcon: Icon(Icons.person),
+            label: "Profile"),
+      ]),
     );
   }
 }
