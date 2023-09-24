@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_application_8/const.dart';
 class DetailsScreen extends StatelessWidget {
   final String courseName;
   final String imagePath;
@@ -10,43 +10,47 @@ class DetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Course Details'),
+        title: Text('Course Details'),backgroundColor: secondaryColor,
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Image.asset(
-              'images/$imagePath.png',
-              height: 150,
-              width: 150,
-            ),
-            SizedBox(height: 20.0),
-            Text(
-              courseName,
-              style: TextStyle(
-                fontSize: 24.0,
-                fontWeight: FontWeight.bold,
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Image.asset(
+                'images/$imagePath.png',
+                height: 150,
+                width: 150,
               ),
-            ),
-            SizedBox(height: 10.0),
-            Text(
-              'Course description goes here...',
-              style: TextStyle(
-                fontSize: 16.0,
-                color: Colors.grey,
+              SizedBox(height: 20.0),
+              Text(
+                courseName,
+                style: TextStyle(
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 20.0),
-            ElevatedButton(
-              onPressed: () {
-                // Add your logic here
-              },
-              child: Text('Enroll Now'),
-            ),
-          ],
+              SizedBox(height: 10.0),
+              Text(
+                'Course description goes here...',
+                style: TextStyle(
+                  fontSize: 16.0,
+                  color: Colors.grey,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: 20.0),
+              ElevatedButton(
+                onPressed: () {
+                  // Add your logic here
+                },
+                child: Text('Enroll Now'),
+                style: ElevatedButton.styleFrom(backgroundColor: primaryColor),
+                
+              ),
+            ],
+          ),
         ),
       ),
     );
