@@ -45,7 +45,8 @@ class DetailsScreen extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   // Add your logic here
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>courseScreen()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>courseScreen( courseName: imageList[index],
+          imagePath: imageList[index])));
                 },
                 child: Text('Enroll Now'),
                 style: ElevatedButton.styleFrom(backgroundColor: primaryColor),
