@@ -35,8 +35,22 @@ Container(
   SizedBox(height: 40,),
   Text("59 hours , 100 UI Practice"),
   ],)
+),
+SizedBox(height: 10,),
+Padding(padding: EdgeInsets.all(20),
+child:Column(
+  crossAxisAlignment: CrossAxisAlignment.start,
+  children: [
+    Text("Course Content ",
+    style: TextStyle(fontSize: 22,
+    fontWeight: FontWeight.bold
+    ),)
+  ],
+) ,
 )
-],))
+],)),
+
+
    );
   }
 
