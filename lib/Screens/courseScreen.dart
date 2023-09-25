@@ -23,11 +23,18 @@ Container(
 ,
     bottomRight: Radius.circular(40)
   )),
-  child: Image.asset( 'images/$imagePath.png',
-  height: 50,
-  width: 50,
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+    Text("Flutter Full Course For beginers "),
+    Center(child:  Image.asset( 'images/$imagePath.png',
+  height: 200,
+  width: 200,
   scale: 0.8,
-  ),
+  ),),
+  SizedBox(height: 40,),
+  Text("59 hours , 100 UI Practice"),
+  ],)
 )
 ],))
    );
