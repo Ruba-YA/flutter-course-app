@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_8/Screens/courseScreen.dart';
 import 'package:flutter_application_8/const.dart';
 class DetailsScreen extends StatelessWidget {
   final String courseName;
@@ -44,6 +45,7 @@ class DetailsScreen extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   // Add your logic here
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>courseScreen()));
                 },
                 child: Text('Enroll Now'),
                 style: ElevatedButton.styleFrom(backgroundColor: primaryColor),
