@@ -126,7 +126,7 @@ class CourseContentItem extends StatelessWidget {
           Icon(
             Icons.play_circle_fill,
             size: 20,
-            color: Colors.blue,
+            color: Colors.black54,
           ),
           SizedBox(width: 8),
           Text(
