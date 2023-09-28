@@ -9,9 +9,8 @@ class welcomeScreen extends StatelessWidget {
        child: Column(
           children: [
               Expanded(
-                  flex: 4,
+                  flex: 2,
                   child: Container(
-                    width: MediaQuery.of(context).size.width,
                     decoration: const BoxDecoration(
                         color: secondaryColor,
                         borderRadius:
@@ -23,7 +22,7 @@ class welcomeScreen extends StatelessWidget {
                     ),
                   )),
               Expanded(
-                  flex: 2,
+                  flex: 1,
                   child: Container(
 
                     color: secondaryColor,
